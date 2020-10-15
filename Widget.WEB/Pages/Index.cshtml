@@ -1,0 +1,105 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@section Styles {
+    <link href="~/css/spinner.css" rel="stylesheet" />
+}
+
+<section>
+    <div class="container">
+        <div class="mx-auto">
+
+            <!-- Header -->
+            <div class="row">
+                <div class="col-md-12 col-lg-10">
+                    <h2 class="mb-2 col-md-12 pl-0 text-black-50 font-weight-bold">Bill of Materials Generator</h2>
+                    <p>This application demonstrates the ability to generate different outputs to be used by different applications.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-10 mb-4">
+                    <dl>
+                        <dt>Legacy Builder</dt>
+                        <dd>This output is intended to be fed into the company’s Legacy Widget Builder.</dd>
+                        <dt>Sample Builder</dt>
+                        <dd>This output is an example of how the system could be extended in the future. I have illustrated this here by producing output with a different formatted using the same data.</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Bill of Materials Generator -->
+            <div class="row">
+                <div class="col-md-12 col-lg-10 mt-2">
+                    <form method="post">
+                        <div class="card">
+                            <div class="card-body bg-light">
+                                <!-- Input -->
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h5>Builder : </h5>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select asp-for="IndexInfo.BuilderType">
+                                            <option value="Legacy">Legacy</option>
+                                            <option value="Sample">Sample (Another application)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 mb-4">
+                                        <button generate-button class="btn btn-primary btn-block" type="submit">Generate</button>
+                                    </div>
+                                </div>
+                                <!-- Output -->
+                                <div class="row">
+                                    <div class="col-md-12 pl-4">
+                                        <table id="tblOutput" class="table table-bordered table-container p-2">
+                                            <thead>
+                                                <tr class="table-active">
+                                                    <th scope="col" class="text-uppercase">Output</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var bill in Model.IndexInfo.BillOfMaterials)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            @bill
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Spinner -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div id="waiting">
+                            <div id="waitingcontent">
+                                <p id="waitingspinner">
+                                    <i class="fa fa-spinner fa-spin fa-2x"></i>
+                                    <br />
+                                    Generating Bill of Materials
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="~/js/index.js"></script>
+}
