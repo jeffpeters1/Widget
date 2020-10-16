@@ -58,7 +58,7 @@ namespace Widget.CORE.Entities
             Height = height;
         }
 
-        // Method
+        // Method - This method is here for illustration purposes only.  I have chosen to use the factory pattern instead (which I am happy to discuss!!)
         public override string ProduceBill()
         {
             return $"Rectangle ({this.PositionX},{this.PositionY}) width={this.Width} height={this.Height}";

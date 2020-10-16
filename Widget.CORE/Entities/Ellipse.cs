@@ -59,7 +59,7 @@ namespace Widget.CORE.Entities
             HorizontalDiameter = horizontalDiameter;
         }
 
-        // Methods
+        // Method - This method is here for illustration purposes only.  I have chosen to use the factory pattern instead (which I am happy to discuss!!)
         public override string ProduceBill()
         {
             return $"Ellipse ({this.PositionX},{this.PositionY}) diameterH = {this.HorizontalDiameter} diameterV = {this.VerticalDiameter}";

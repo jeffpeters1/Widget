@@ -55,7 +55,7 @@ namespace Widget.CORE.Entities
             PositionY = positionY;
         }
 
-        // Methods
+        // Method - This method is here for illustration purposes only.  I have chosen to use the factory pattern instead (which I am happy to discuss!!)
         public abstract string ProduceBill();
 
         // Validation
