@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Widget.CORE.Interfaces;
 using Widget.CORE.Services;
+using Widget.Infrastructure.Data;
 using Widget.Infrastructure.Logging;
 
 namespace Widget.WEB
@@ -24,6 +25,7 @@ namespace Widget.WEB
             services.AddRazorPages();
 
             services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
+            services.AddTransient<IRepository, Repository>();
             services.AddTransient<IOutputService, OutputService>();
             services.AddTransient<IBillFactoryService, BillFactoryService>();
         }
