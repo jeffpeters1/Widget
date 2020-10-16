@@ -61,7 +61,7 @@ namespace Widget.CORE.Entities
             if (IsPositionNegative(position))
                 throw new InvalidMeasurementException();
 
-            bool IsPositionNegative(int position)
+            static bool IsPositionNegative(int position)
             {
                 return position < 0;
             }
