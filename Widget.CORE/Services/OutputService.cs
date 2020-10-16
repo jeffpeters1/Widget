@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Widget.CORE.Entities;
 using Widget.CORE.Enums;
 using Widget.CORE.Exceptions;
+using Widget.CORE.Helpers;
 using Widget.CORE.Interfaces;
 using Widget.CORE.Widgets;
 
@@ -12,7 +13,7 @@ namespace Widget.CORE.Services
     {
         private readonly List<WidgetSpec> HARDCODED_WIDGET_SPEC_LIST = new List<WidgetSpec>()
         {
-            new WidgetSpec(){ ShapeType=ShapeType.Rectangle, PositionX=-10, PositionY=10, Width=30, Height=40 },
+            new WidgetSpec(){ ShapeType=ShapeType.Rectangle, PositionX=10, PositionY=10, Width=30, Height=40 },
             new WidgetSpec(){ ShapeType=ShapeType.Square, PositionX=15, PositionY=30, Width=35 },
             new WidgetSpec(){ ShapeType=ShapeType.Ellipse, PositionX=100, PositionY=150, HorizontalDiameter=300, VerticalDiameter=200},
             new WidgetSpec(){ ShapeType=ShapeType.Circle ,PositionX=1, PositionY=1, Diameter=300 },
@@ -20,10 +21,12 @@ namespace Widget.CORE.Services
         };
 
         private readonly IBillFactoryService _billFactoryService;
+        private readonly IAppLogger<OutputService> _logger;
 
-        public OutputService(IBillFactoryService billFactoryService)
+        public OutputService(IBillFactoryService billFactoryService, IAppLogger<OutputService> logger)
         {
             _billFactoryService = billFactoryService;
+            _logger = logger;
         }
 
         public List<string> GetBillOfMaterials(BuilderType builderType)
@@ -67,7 +70,8 @@ namespace Widget.CORE.Services
             }
             catch (InvalidMeasurementException ex)
             {
-
+                bills.Add(Messages.Abort);
+                _logger.LogWarning($"Error in GetBillOfMaterials : {ex.Message}");
             }
             catch (Exception)
             {
