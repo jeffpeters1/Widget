@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using Widget.CORE.Enums;
 using Widget.CORE.Exceptions;
+using Widget.CORE.Helpers;
 using Widget.CORE.Interfaces;
 using Widget.WEB.ViewModels;
 
@@ -78,7 +79,7 @@ namespace Widget.WEB.Pages
 
         private void Abort()
         {
-            IndexInfo.BillOfMaterials = new List<string>() { "+++++Abort+++++" };
+            IndexInfo.BillOfMaterials = new List<string>() { Messages.Abort };
         }
     }
 }

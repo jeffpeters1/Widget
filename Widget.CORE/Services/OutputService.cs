@@ -12,7 +12,7 @@ namespace Widget.CORE.Services
     {
         private readonly List<WidgetSpec> HARDCODED_WIDGET_SPEC_LIST = new List<WidgetSpec>()
         {
-            new WidgetSpec(){ ShapeType=ShapeType.Rectangle, PositionX=10, PositionY=10, Width=30, Height=40 },
+            new WidgetSpec(){ ShapeType=ShapeType.Rectangle, PositionX=-10, PositionY=10, Width=30, Height=40 },
             new WidgetSpec(){ ShapeType=ShapeType.Square, PositionX=15, PositionY=30, Width=35 },
             new WidgetSpec(){ ShapeType=ShapeType.Ellipse, PositionX=100, PositionY=150, HorizontalDiameter=300, VerticalDiameter=200},
             new WidgetSpec(){ ShapeType=ShapeType.Circle ,PositionX=1, PositionY=1, Diameter=300 },
@@ -64,6 +64,10 @@ namespace Widget.CORE.Services
                             throw new UnknownShapeException();
                     }
                 }
+            }
+            catch (InvalidMeasurementException ex)
+            {
+
             }
             catch (Exception)
             {
