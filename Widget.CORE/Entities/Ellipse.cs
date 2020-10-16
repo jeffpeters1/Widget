@@ -59,6 +59,12 @@ namespace Widget.CORE.Entities
             HorizontalDiameter = horizontalDiameter;
         }
 
+        // Methods
+        public override string ProduceBill()
+        {
+            return $"Ellipse ({this.PositionX},{this.PositionY}) diameterH = {this.HorizontalDiameter} diameterV = {this.VerticalDiameter}";
+        }
+
         // Validation
         private void ValidateDiameter(int value)
         {

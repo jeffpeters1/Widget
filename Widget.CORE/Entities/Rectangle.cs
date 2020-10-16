@@ -1,6 +1,5 @@
 ﻿using System;
 using Widget.CORE.Exceptions;
-using Widget.CORE.Interfaces;
 
 namespace Widget.CORE.Entities
 {
@@ -57,6 +56,12 @@ namespace Widget.CORE.Entities
         {
             Width = width;
             Height = height;
+        }
+
+        // Method
+        public override string ProduceBill()
+        {
+            return $"Rectangle ({this.PositionX},{this.PositionY}) width={this.Width} height={this.Height}";
         }
 
         // Validation

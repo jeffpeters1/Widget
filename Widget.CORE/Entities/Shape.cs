@@ -55,6 +55,9 @@ namespace Widget.CORE.Entities
             PositionY = positionY;
         }
 
+        // Methods
+        public abstract string ProduceBill();
+
         // Validation
         private void ValidatePosition(int position)
         {
