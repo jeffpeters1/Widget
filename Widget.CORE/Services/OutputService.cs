@@ -5,7 +5,6 @@ using Widget.CORE.Enums;
 using Widget.CORE.Exceptions;
 using Widget.CORE.Helpers;
 using Widget.CORE.Interfaces;
-using Widget.CORE.Widgets;
 
 namespace Widget.CORE.Services
 {
