@@ -27,7 +27,7 @@ namespace Widget.CORE.Services
             string bill;
             var bills = new List<string>();
 
-            // Get bill formatter depending on builder type
+            // Note : Use of Factory pattern prefered to inheritance/interface implementation
             IBillGenerator billGenerator = _billFactoryService.Create(builderType);
 
             try
